@@ -34,16 +34,17 @@ class _HomeUIState extends State<HomeUI> {
               height: 50.0,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.width * 0.4,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.brown,
                       width: 5.0,
                     ),
-                    shape: BoxShape.circle,
+                    shape: BoxShape.rectangle,
                     image: DecorationImage(
                       image: AssetImage(
                         'asset/images/my_profile.png',
@@ -56,14 +57,14 @@ class _HomeUIState extends State<HomeUI> {
                   onPressed: () {},
                   icon: Icon(
                     Icons.camera_alt_rounded,
-                    size: MediaQuery.of(context).size.width * 0.008,
+                    size: MediaQuery.of(context).size.width * 0.10,
                     color: Colors.pink,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 20.0,
+              height: 25.0,
             ),
             Padding(
               padding: const EdgeInsets.only(
