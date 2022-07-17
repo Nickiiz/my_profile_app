@@ -10,8 +10,16 @@ class YourNameUI extends StatefulWidget {
 class _YourNameUIState extends State<YourNameUI> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Colors.green,
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        // ignore: prefer_const_constructors
+        title: Text(
+          'Add/Edit Name',
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }

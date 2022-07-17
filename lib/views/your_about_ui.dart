@@ -10,8 +10,16 @@ class YourAboutUI extends StatefulWidget {
 class _YourAboutUIState extends State<YourAboutUI> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Colors.brown,
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        // ignore: prefer_const_constructors
+        title: Text(
+          'Add/Edit About',
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }

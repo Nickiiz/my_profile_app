@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class YourPhotoUI extends StatefulWidget {
-  const YourPhotoUI({Key? key}) : super(key: key);
+class YourPhoneUI extends StatefulWidget {
+  const YourPhoneUI({Key? key}) : super(key: key);
 
   @override
-  State<YourPhotoUI> createState() => _YourPhotoUIState();
+  State<YourPhoneUI> createState() => _YourPhoneUIState();
 }
 
-class _YourPhotoUIState extends State<YourPhotoUI> {
+class _YourPhoneUIState extends State<YourPhoneUI> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        // ignore: prefer_const_constructors
+        title: Text(
+          'Add/Edit Phone',
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }

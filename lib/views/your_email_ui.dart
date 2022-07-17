@@ -10,8 +10,16 @@ class YourEmailUI extends StatefulWidget {
 class _YourEmailUIState extends State<YourEmailUI> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        // ignore: prefer_const_constructors
+        title: Text(
+          'Add/Edit Email',
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }
