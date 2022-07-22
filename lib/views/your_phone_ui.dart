@@ -87,6 +87,7 @@ class _YourPhoneUIState extends State<YourPhoneUI> {
                             child: Text(
                               'ตกลง',
                             ),
+                            style: ElevatedButton.styleFrom(),
                           ),
                         ],
                       );

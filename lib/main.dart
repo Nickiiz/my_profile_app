@@ -10,9 +10,9 @@ void main(List<String> args) {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       // ignore: prefer_const_constructors
-      home: YourNameUI(),
+      home: HomeUI(),
       theme: ThemeData(
-        fontFamily: 'Kanit',
+        fontFamily: 'Itim',
       ),
     ),
   );
