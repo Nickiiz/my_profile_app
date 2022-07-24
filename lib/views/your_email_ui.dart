@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class YourEmailUI extends StatefulWidget {
   const YourEmailUI({Key? key}) : super(key: key);
@@ -10,6 +11,12 @@ class YourEmailUI extends StatefulWidget {
 
 class _YourEmailUIState extends State<YourEmailUI> {
   TextEditingController emailctrl = TextEditingController(text: '');
+  Future addYouremailToSF() async {
+    SharedPreferences prefe = await SharedPreferences.getInstance();
+
+    prefe.setString('youremail', emailctrl.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -75,9 +82,12 @@ class _YourEmailUIState extends State<YourEmailUI> {
                       return AlertDialog(
                         title: Text(
                           'คำเตือน',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
                         ),
                         content: Text(
-                          'ป้อนชื่อของคุณด้วย',
+                          'ป้อนอีเมลล์ของคุณด้วย',
                         ),
                         actions: [
                           ElevatedButton(
@@ -94,6 +104,10 @@ class _YourEmailUIState extends State<YourEmailUI> {
                   );
                 } else {
                   //บันทึกที่ป้อนลงไปเก็บไว้ที่ sharePreference และกลับไป home
+                  addYouremailToSF().then((value) {
+                    // .then ได้ก็ต่อเมื่อ เป็น future
+                    Navigator.pop(context);
+                  });
                 }
               },
               child: Text(

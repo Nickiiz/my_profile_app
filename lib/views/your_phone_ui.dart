@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class YourPhoneUI extends StatefulWidget {
   const YourPhoneUI({Key? key}) : super(key: key);
@@ -10,6 +11,12 @@ class YourPhoneUI extends StatefulWidget {
 
 class _YourPhoneUIState extends State<YourPhoneUI> {
   TextEditingController Phonectrl = TextEditingController(text: '');
+  Future addYourPhoneToSF() async {
+    SharedPreferences prefe = await SharedPreferences.getInstance();
+
+    prefe.setString('yourphone', Phonectrl.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -75,9 +82,12 @@ class _YourPhoneUIState extends State<YourPhoneUI> {
                       return AlertDialog(
                         title: Text(
                           'คำเตือน',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
                         ),
                         content: Text(
-                          'ป้อนชื่อของคุณด้วย',
+                          'ป้อนเบอร์โทรศัพท์ของคุณด้วย',
                         ),
                         actions: [
                           ElevatedButton(
@@ -95,6 +105,9 @@ class _YourPhoneUIState extends State<YourPhoneUI> {
                   );
                 } else {
                   //บันทึกที่ป้อนลงไปเก็บไว้ที่ sharePreference และกลับไป home
+                  addYourPhoneToSF().then((value) {
+                    Navigator.pop(context);
+                  });
                 }
               },
               child: Text(

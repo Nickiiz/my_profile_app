@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class YourAboutUI extends StatefulWidget {
   const YourAboutUI({Key? key}) : super(key: key);
@@ -11,6 +12,12 @@ class YourAboutUI extends StatefulWidget {
 
 class _YourAboutUIState extends State<YourAboutUI> {
   TextEditingController Aboutctrl = TextEditingController(text: '');
+  Future addYouraboutToSF() async {
+    SharedPreferences prefe = await SharedPreferences.getInstance();
+
+    prefe.setString('yourabout', Aboutctrl.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -75,9 +82,12 @@ class _YourAboutUIState extends State<YourAboutUI> {
                       return AlertDialog(
                         title: Text(
                           'คำเตือน',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
                         ),
                         content: Text(
-                          'ป้อนชื่อของคุณด้วย',
+                          'ป้อนเกี่ยวกับคุณด้วย',
                         ),
                         actions: [
                           ElevatedButton(
@@ -94,6 +104,10 @@ class _YourAboutUIState extends State<YourAboutUI> {
                   );
                 } else {
                   //บันทึกที่ป้อนลงไปเก็บไว้ที่ sharePreference และกลับไป home
+                  addYouraboutToSF().then((value) {
+                    // .then ได้ก็ต่อเมื่อ เป็น future
+                    Navigator.pop(context);
+                  });
                 }
               },
               child: Text(
