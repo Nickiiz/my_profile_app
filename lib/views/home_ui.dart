@@ -19,7 +19,7 @@ class _HomeUIState extends State<HomeUI> {
     // ignore: prefer_const_constructors
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Colors.red,
         // ignore: prefer_const_constructors
         title: Text(
           'My Profile',
